@@ -44,6 +44,7 @@
       justify-content:space-between;
       gap:16px;
       margin-bottom:16px;
+      flex-wrap:wrap;
     }
 
     .brand{
@@ -69,6 +70,36 @@
       background: rgba(255,255,255,.02);
     }
     .brand .sub{ font-size:13px; color:var(--muted); margin:0; }
+
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .user-info{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-size:13px;
+    }
+    .user-email{ color:var(--muted); cursor:pointer; transition:.12s ease; }
+    .user-email:hover{ color:var(--acc1); }
+    .logout-btn{
+      background:none;
+      border:none;
+      color:var(--bad);
+      cursor:pointer;
+      font-size:12px;
+      padding:4px 8px;
+      border-radius:8px;
+      transition:.12s ease;
+    }
+    .logout-btn:hover{ background: rgba(255,107,136,.1); }
 
     .tabs{
       display:flex;
@@ -436,28 +467,327 @@
     .loaderText{ flex: 1; min-width: 0; }
     .loaderTitle{ font-weight: 900; letter-spacing: .2px; }
     .loaderSub{ color: var(--muted); font-size: 13px; margin-top: 2px; line-height: 1.35; }
+
+    /* Auth Pages */
+    .auth-page{
+      max-width:400px;
+      margin:80px auto;
+      padding:0 16px;
+    }
+    .auth-card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius: var(--r);
+      padding:24px;
+      box-shadow: var(--shadow);
+    }
+    .auth-card h2{
+      margin:0 0 20px 0;
+      font-size:22px;
+      text-align:center;
+    }
+    .auth-card .form-group{
+      margin-bottom:16px;
+    }
+    .auth-card .form-group label{
+      margin-bottom:6px;
+    }
+    .auth-card .error-msg{
+      color:var(--bad);
+      font-size:13px;
+      margin-top:8px;
+      text-align:center;
+    }
+    .auth-card .link-row{
+      text-align:center;
+      margin-top:16px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .auth-card .link-row a{
+      color:var(--acc1);
+      text-decoration:none;
+    }
+    .auth-card .link-row a:hover{
+      text-decoration:underline;
+    }
+
+    /* Dashboard */
+    .dashboard-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:20px;
+      flex-wrap:wrap;
+    }
+    .dashboard-header h2{
+      margin:0;
+      font-size:22px;
+    }
+    .stats-row{
+      display:flex;
+      gap:16px;
+      margin-bottom:20px;
+    }
+    .stat-card{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding:16px 20px;
+      flex:1;
+      min-width:120px;
+    }
+    .stat-card .stat-value{
+      font-size:28px;
+      font-weight:900;
+      color:var(--acc1);
+    }
+    .stat-card .stat-label{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+    .history-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .history-item{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding:16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      cursor:pointer;
+      transition:.12s ease;
+    }
+    .history-item:hover{
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.15);
+    }
+    .history-item-info{
+      flex:1;
+      min-width:0;
+    }
+    .history-item-title{
+      font-weight:700;
+      font-size:15px;
+      margin-bottom:4px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .history-item-meta{
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .history-item-actions{
+      display:flex;
+      gap:8px;
+    }
+    .history-item-actions button{
+      width:auto;
+      padding:8px 12px;
+      font-size:12px;
+    }
+    .pagination{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      margin-top:20px;
+    }
+    .pagination button{
+      width:auto;
+      padding:8px 16px;
+    }
+    .pagination .page-info{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .empty-state{
+      text-align:center;
+      padding:40px 20px;
+      color:var(--muted);
+    }
+    .empty-state p{
+      margin:0 0 16px 0;
+    }
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(8px);
+      z-index:10000;
+      padding:16px;
+    }
+    .modal-content{
+      width:min(900px, calc(100% - 32px));
+      max-height:calc(100vh - 64px);
+      background: rgba(17,24,39,.95);
+      border:1px solid var(--border);
+      border-radius: var(--r);
+      box-shadow: 0 25px 80px rgba(0,0,0,.55);
+      display:flex;
+      flex-direction:column;
+    }
+    .modal-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px;
+      border-bottom:1px solid var(--border);
+    }
+    .modal-header h3{
+      margin:0;
+      font-size:16px;
+    }
+    .modal-close{
+      background:none;
+      border:none;
+      color:var(--muted);
+      cursor:pointer;
+      font-size:20px;
+      padding:4px 8px;
+      border-radius:8px;
+      transition:.12s ease;
+    }
+    .modal-close:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.05);
+    }
+    .modal-body{
+      flex:1;
+      overflow-y:auto;
+      padding:16px;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header>
+    <!-- Header -->
+    <header id="mainHeader">
       <div class="brand">
         <h1 class="title">
           Product Listing Generator
           <span class="badge" id="modeBadge">OLX</span>
         </h1>
-        <p class="sub">Photos → attributes → marketplace listing (OLX / Wildberries / Ozon)</p>
+        <p class="sub">Photos to marketplace listing (OLX / Wildberries / Ozon)</p>
       </div>
 
-      <nav class="tabs" aria-label="Marketplace tabs">
-        <a class="tab" href="/olx" data-mode="olx">OLX</a>
-        <a class="tab" href="/wb" data-mode="wildberries">Wildberries</a>
-        <a class="tab" href="/ozon" data-mode="ozon">Ozon</a>
-      </nav>
+      <div class="header-right">
+        <nav class="tabs" aria-label="Marketplace tabs" id="marketplaceTabs">
+          <a class="tab" href="/olx" data-mode="olx">OLX</a>
+          <a class="tab" href="/wb" data-mode="wildberries">Wildberries</a>
+          <a class="tab" href="/ozon" data-mode="ozon">Ozon</a>
+        </nav>
+
+        <div class="user-info hidden" id="userInfo">
+          <span class="user-email" id="userEmail"></span>
+          <button class="logout-btn" id="btnLogout">Logout</button>
+        </div>
+
+        <div id="authLinks">
+          <a class="tab" href="/login" id="loginLink">Login</a>
+        </div>
+      </div>
     </header>
 
-    <section class="panel">
+    <!-- Login Page -->
+    <div class="auth-page hidden" id="loginPage">
+      <div class="auth-card">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required placeholder="Your password">
+          </div>
+          <div class="error-msg hidden" id="loginError"></div>
+          <button type="submit" class="btn primary" id="loginSubmit">Login</button>
+        </form>
+        <div class="link-row">
+          Don't have an account? <a href="/register">Register</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Register Page -->
+    <div class="auth-page hidden" id="registerPage">
+      <div class="auth-card">
+        <h2>Create Account</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="registerName">Full Name (optional)</label>
+            <input type="text" id="registerName" placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required minlength="6" placeholder="Min 6 characters">
+          </div>
+          <div class="form-group">
+            <label for="registerConfirm">Confirm Password</label>
+            <input type="password" id="registerConfirm" required placeholder="Repeat password">
+          </div>
+          <div class="error-msg hidden" id="registerError"></div>
+          <button type="submit" class="btn primary" id="registerSubmit">Create Account</button>
+        </form>
+        <div class="link-row">
+          Already have an account? <a href="/login">Login</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div class="hidden" id="dashboardPage">
+      <div class="dashboard-header">
+        <h2>Generation History</h2>
+        <button class="btn primary" id="btnNewGeneration">New Generation</button>
+      </div>
+
+      <div class="stats-row" id="statsRow">
+        <div class="stat-card">
+          <div class="stat-value" id="statTotal">0</div>
+          <div class="stat-label">Total Generations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="statThisMonth">0</div>
+          <div class="stat-label">This Month</div>
+        </div>
+      </div>
+
+      <div id="historyContainer">
+        <div class="history-list" id="historyList"></div>
+        <div class="pagination hidden" id="pagination">
+          <button class="btn secondary" id="btnPrevPage">Previous</button>
+          <span class="page-info" id="pageInfo">Page 1 of 1</span>
+          <button class="btn secondary" id="btnNextPage">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Generator Panel -->
+    <section class="panel hidden" id="generatorPanel">
       <div class="top">
         <div class="card">
           <h3>Input <span class="pill" id="statePill">Ready</span></h3>
@@ -484,7 +814,7 @@
           </div>
 
           <p class="muted" style="margin:10px 0 0 0;">
-            Tip: use 3–8 photos (logo/label/packaging + overall view).
+            Tip: use 3-8 photos (logo/label/packaging + overall view).
           </p>
         </div>
 
@@ -495,7 +825,7 @@
             <div class="dropTop">
               <div>
                 <div class="big">Drop photos here</div>
-                <div class="small">PNG/JPG/WebP • multiple at once • max 8</div>
+                <div class="small">PNG/JPG/WebP - multiple at once - max 8</div>
               </div>
               <div>
                 <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" multiple class="hidden">
@@ -529,7 +859,7 @@
           </div>
 
           <div id="listingOut">
-            <div class="block">—</div>
+            <div class="block">-</div>
           </div>
         </div>
       </div>
@@ -542,14 +872,82 @@
     <div class="loaderCard">
       <div class="spinner"></div>
       <div class="loaderText">
-        <div class="loaderTitle" id="loaderTitle">Generating…</div>
+        <div class="loaderTitle" id="loaderTitle">Generating...</div>
         <div class="loaderSub" id="loaderSub">Analyzing photos and extracting attributes</div>
       </div>
       <button class="copy" id="btnCancel" type="button">Cancel</button>
     </div>
   </div>
 
+  <!-- History Detail Modal -->
+  <div class="modal hidden" id="historyModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Generation Details</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
   <script>
+    // --- Auth State ---
+    const auth = {
+      token: localStorage.getItem("token"),
+      user: null,
+
+      isLoggedIn() {
+        return !!this.token;
+      },
+
+      setToken(token) {
+        this.token = token;
+        if (token) {
+          localStorage.setItem("token", token);
+        } else {
+          localStorage.removeItem("token");
+        }
+      },
+
+      logout() {
+        this.token = null;
+        this.user = null;
+        localStorage.removeItem("token");
+        // Clear all cached user data to prevent data leaking between users
+        clearUserState();
+        navigateTo("/login");
+      },
+
+      async fetch(url, options = {}) {
+        const headers = options.headers || {};
+        if (this.token) {
+          headers["Authorization"] = `Bearer ${this.token}`;
+        }
+        const res = await fetch(url, { ...options, headers });
+        if (res.status === 401) {
+          this.logout();
+          throw new Error("Session expired");
+        }
+        return res;
+      },
+
+      async fetchMe() {
+        if (!this.token) return null;
+        try {
+          const res = await this.fetch("/api/auth/me");
+          if (res.ok) {
+            this.user = await res.json();
+            return this.user;
+          }
+        } catch {
+          // Ignore
+        }
+        this.setToken(null);
+        return null;
+      }
+    };
+
+    // --- App State ---
     const state = {
       mode: "olx",
       files: [],
@@ -563,23 +961,41 @@
         "Building a universal product profile",
         "Generating OLX / WB / Ozon listing variants",
         "Checking missing/uncertain fields",
-      ]
+      ],
+      // Dashboard state
+      historyPage: 1,
+      historyLimit: 10,
+      historyTotal: 0,
+      historyItems: [],
     };
 
     const $ = (id) => document.getElementById(id);
 
-    function showToast(msg) {
-      const t = $("toast");
-      t.textContent = msg;
-      t.classList.add("show");
-      setTimeout(() => t.classList.remove("show"), 2200);
+    // Clear all user-specific state (call on logout and before new login)
+    function clearUserState() {
+      state.files = [];
+      state.result = null;
+      state.historyPage = 1;
+      state.historyTotal = 0;
+      state.historyItems = [];
+      // Clear UI elements
+      const hintEl = $("hint");
+      if (hintEl) hintEl.value = "";
+      const thumbsEl = $("thumbs");
+      if (thumbsEl) thumbsEl.innerHTML = "";
+      const universalOut = $("universalOut");
+      if (universalOut) universalOut.textContent = "{}";
+      const listingOut = $("listingOut");
+      if (listingOut) listingOut.innerHTML = '<div class="block">-</div>';
     }
 
-    function formatBytes(bytes) {
-      const units = ["B","KB","MB","GB"];
-      let i = 0, n = bytes;
-      while (n >= 1024 && i < units.length - 1) { n /= 1024; i++; }
-      return `${n.toFixed(i === 0 ? 0 : 2)} ${units[i]}`;
+    // --- Navigation ---
+    function getPageFromPath(pathname) {
+      const p = (pathname || "/").toLowerCase();
+      if (p === "/login") return "login";
+      if (p === "/register") return "register";
+      if (p === "/dashboard") return "dashboard";
+      return "generator";
     }
 
     function routeToMode(pathname) {
@@ -601,11 +1017,351 @@
       return "OLX";
     }
 
+    function navigateTo(path) {
+      history.pushState({}, "", path);
+      renderPage();
+    }
+
+    function renderPage() {
+      const page = getPageFromPath(location.pathname);
+
+      // Hide all pages
+      $("loginPage").classList.add("hidden");
+      $("registerPage").classList.add("hidden");
+      $("dashboardPage").classList.add("hidden");
+      $("generatorPanel").classList.add("hidden");
+      $("marketplaceTabs").classList.add("hidden");
+      $("modeBadge").classList.add("hidden");
+
+      // Update auth UI
+      if (auth.isLoggedIn() && auth.user) {
+        $("userInfo").classList.remove("hidden");
+        $("authLinks").classList.add("hidden");
+        $("userEmail").textContent = auth.user.email;
+      } else {
+        $("userInfo").classList.add("hidden");
+        $("authLinks").classList.remove("hidden");
+      }
+
+      // Show appropriate page
+      if (page === "login") {
+        if (auth.isLoggedIn()) {
+          navigateTo("/dashboard");
+          return;
+        }
+        $("loginPage").classList.remove("hidden");
+      } else if (page === "register") {
+        if (auth.isLoggedIn()) {
+          navigateTo("/dashboard");
+          return;
+        }
+        $("registerPage").classList.remove("hidden");
+      } else if (page === "dashboard") {
+        if (!auth.isLoggedIn()) {
+          navigateTo("/login");
+          return;
+        }
+        $("dashboardPage").classList.remove("hidden");
+        loadHistory();
+      } else {
+        // Generator page
+        $("generatorPanel").classList.remove("hidden");
+        $("marketplaceTabs").classList.remove("hidden");
+        $("modeBadge").classList.remove("hidden");
+        setMode(routeToMode(location.pathname));
+      }
+    }
+
+    // --- Utilities ---
+    function showToast(msg) {
+      const t = $("toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2200);
+    }
+
+    function formatBytes(bytes) {
+      const units = ["B","KB","MB","GB"];
+      let i = 0, n = bytes;
+      while (n >= 1024 && i < units.length - 1) { n /= 1024; i++; }
+      return `${n.toFixed(i === 0 ? 0 : 2)} ${units[i]}`;
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString() + " " + d.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"});
+    }
+
+    function escapeHtml(s) {
+      return (s ?? "").toString()
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    // --- Auth Functions ---
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = $("loginEmail").value;
+      const password = $("loginPassword").value;
+      const errorEl = $("loginError");
+      const btn = $("loginSubmit");
+
+      errorEl.classList.add("hidden");
+      btn.disabled = true;
+      btn.textContent = "Logging in...";
+
+      try {
+        const res = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || data.detail || "Login failed");
+        }
+
+        // Clear any cached state from previous user before setting new user
+        clearUserState();
+        auth.setToken(data.access_token);
+        await auth.fetchMe();
+        showToast("Welcome back!");
+        navigateTo("/dashboard");
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.classList.remove("hidden");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Login";
+      }
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const fullName = $("registerName").value;
+      const email = $("registerEmail").value;
+      const password = $("registerPassword").value;
+      const confirm = $("registerConfirm").value;
+      const errorEl = $("registerError");
+      const btn = $("registerSubmit");
+
+      errorEl.classList.add("hidden");
+
+      if (password !== confirm) {
+        errorEl.textContent = "Passwords do not match";
+        errorEl.classList.remove("hidden");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Creating account...";
+
+      try {
+        const res = await fetch("/api/auth/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password, full_name: fullName || null })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || data.detail || "Registration failed");
+        }
+
+        // Clear any cached state from previous user before setting new user
+        clearUserState();
+        auth.setToken(data.access_token);
+        await auth.fetchMe();
+        showToast("Account created!");
+        navigateTo("/dashboard");
+      } catch (err) {
+        errorEl.textContent = err.message;
+        errorEl.classList.remove("hidden");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Create Account";
+      }
+    }
+
+    // --- Dashboard Functions ---
+    async function loadHistory() {
+      try {
+        const res = await auth.fetch(`/api/history?page=${state.historyPage}&limit=${state.historyLimit}`);
+        if (!res.ok) throw new Error("Failed to load history");
+
+        const data = await res.json();
+        state.historyItems = data.items;
+        state.historyTotal = data.total;
+
+        renderHistory();
+        renderStats();
+      } catch (err) {
+        showToast(err.message);
+      }
+    }
+
+    function renderHistory() {
+      const container = $("historyList");
+      const pagination = $("pagination");
+
+      if (state.historyItems.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <p>No generations yet. Create your first listing!</p>
+            <button class="btn primary" onclick="navigateTo('/olx')">New Generation</button>
+          </div>
+        `;
+        pagination.classList.add("hidden");
+        return;
+      }
+
+      container.innerHTML = state.historyItems.map(item => `
+        <div class="history-item" data-id="${item.id}">
+          <div class="history-item-info">
+            <div class="history-item-title">${escapeHtml(item.product_type || "Product")}${item.brand ? ` - ${escapeHtml(item.brand)}` : ""}</div>
+            <div class="history-item-meta">
+              <span>${formatDate(item.created_at)}</span>
+              <span>${item.image_count} image${item.image_count !== 1 ? "s" : ""}</span>
+              <span>${item.lang.toUpperCase()}</span>
+              ${item.generation_time_ms ? `<span>${(item.generation_time_ms / 1000).toFixed(1)}s</span>` : ""}
+            </div>
+          </div>
+          <div class="history-item-actions">
+            <button class="btn secondary view-btn" data-id="${item.id}">View</button>
+            <button class="btn secondary delete-btn" data-id="${item.id}">Delete</button>
+          </div>
+        </div>
+      `).join("");
+
+      // Add event listeners
+      container.querySelectorAll(".view-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          viewHistoryItem(btn.dataset.id);
+        });
+      });
+
+      container.querySelectorAll(".delete-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          deleteHistoryItem(btn.dataset.id);
+        });
+      });
+
+      container.querySelectorAll(".history-item").forEach(item => {
+        item.addEventListener("click", () => {
+          viewHistoryItem(item.dataset.id);
+        });
+      });
+
+      // Pagination
+      const totalPages = Math.ceil(state.historyTotal / state.historyLimit);
+      if (totalPages > 1) {
+        pagination.classList.remove("hidden");
+        $("pageInfo").textContent = `Page ${state.historyPage} of ${totalPages}`;
+        $("btnPrevPage").disabled = state.historyPage <= 1;
+        $("btnNextPage").disabled = state.historyPage >= totalPages;
+      } else {
+        pagination.classList.add("hidden");
+      }
+    }
+
+    function renderStats() {
+      $("statTotal").textContent = state.historyTotal;
+
+      // Count this month
+      const now = new Date();
+      const thisMonth = state.historyItems.filter(item => {
+        const d = new Date(item.created_at);
+        return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
+      }).length;
+      $("statThisMonth").textContent = thisMonth;
+    }
+
+    async function viewHistoryItem(id) {
+      try {
+        const res = await auth.fetch(`/api/history/${id}`);
+        if (!res.ok) throw new Error("Failed to load generation");
+
+        const data = await res.json();
+        showHistoryModal(data);
+      } catch (err) {
+        showToast(err.message);
+      }
+    }
+
+    async function deleteHistoryItem(id) {
+      if (!confirm("Delete this generation from history?")) return;
+
+      try {
+        const res = await auth.fetch(`/api/history/${id}`, { method: "DELETE" });
+        if (!res.ok) throw new Error("Failed to delete");
+
+        showToast("Deleted");
+        loadHistory();
+      } catch (err) {
+        showToast(err.message);
+      }
+    }
+
+    function showHistoryModal(data) {
+      const modal = $("historyModal");
+      const body = $("modalBody");
+
+      $("modalTitle").textContent = `${data.product_type || "Product"}${data.brand ? ` - ${data.brand}` : ""}`;
+
+      const result = data.result_json;
+      const universal = result?.universal || {};
+      const listings = result?.listings || {};
+
+      body.innerHTML = `
+        <div style="margin-bottom:16px;">
+          <div class="muted" style="margin-bottom:8px;">Generated: ${formatDate(data.created_at)} | ${data.image_count} images | ${data.lang.toUpperCase()}</div>
+          ${data.hint ? `<div class="muted">Hint: ${escapeHtml(data.hint)}</div>` : ""}
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="card">
+            <h3 style="margin:0 0 10px 0;">Universal</h3>
+            <div class="block">${escapeHtml(JSON.stringify(universal, null, 2))}</div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 10px 0;">OLX</h3>
+            ${renderListingVariant(listings.olx)}
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 10px 0;">Wildberries</h3>
+            ${renderListingVariant(listings.wildberries)}
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 10px 0;">Ozon</h3>
+            ${renderListingVariant(listings.ozon)}
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove("hidden");
+    }
+
+    function closeHistoryModal() {
+      $("historyModal").classList.add("hidden");
+    }
+
+    // --- Generator Functions ---
     function setLoading(on) {
       state.loading = on;
 
       $("overlay").classList.toggle("hidden", !on);
-      $("statePill").textContent = on ? "Working…" : "Ready";
+      $("statePill").textContent = on ? "Working..." : "Ready";
 
       $("btnGen").disabled = on;
       $("btnClear").disabled = on;
@@ -617,7 +1373,7 @@
 
       if (on) {
         state.stepIndex = 0;
-        $("loaderTitle").textContent = "Generating…";
+        $("loaderTitle").textContent = "Generating...";
         $("loaderSub").textContent = state.steps[state.stepIndex];
 
         clearInterval(state.stepTimer);
@@ -636,7 +1392,7 @@
       $("modeBadge").textContent = modeLabel(mode);
       $("listingTitle").textContent = modeLabel(mode);
 
-      document.querySelectorAll(".tab").forEach(a => {
+      document.querySelectorAll("#marketplaceTabs .tab").forEach(a => {
         a.classList.toggle("active", a.dataset.mode === mode);
       });
 
@@ -661,7 +1417,7 @@
         div.className = "thumb";
         div.innerHTML = `
           <img src="${url}" alt="photo ${idx+1}">
-          <div class="x" title="Remove">×</div>
+          <div class="x" title="Remove">x</div>
         `;
 
         div.querySelector(".x").addEventListener("click", () => {
@@ -696,28 +1452,19 @@
       const toAdd = images.slice(0, free);
       state.files.push(...toAdd);
 
-      if (images.length > free) showToast("Max 8 photos — extra files were ignored");
+      if (images.length > free) showToast("Max 8 photos - extra files were ignored");
       updateFilesUI();
     }
 
-    function escapeHtml(s) {
-      return (s ?? "").toString()
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-
     function renderListingVariant(v) {
-      if (!v) return `<div class="block">—</div>`;
+      if (!v) return `<div class="block">-</div>`;
 
       const bulletsCount = Array.isArray(v.bullets) ? v.bullets.length : 0;
       const keywordsCount = Array.isArray(v.keywords) ? v.keywords.length : 0;
       const todosCount = Array.isArray(v.compliance_todos) ? v.compliance_todos.length : 0;
       const unctCount = Array.isArray(v.uncertainty) ? v.uncertainty.length : 0;
 
-      const bulletsText = (v.bullets || []).map(x => `• ${x}`).join("\n");
+      const bulletsText = (v.bullets || []).map(x => `- ${x}`).join("\n");
       const keywordsText = (v.keywords || []).join(", ");
 
       const attr = v.attributes && typeof v.attributes === "object" ? v.attributes : {};
@@ -732,8 +1479,8 @@
           </div>`
         : `<div class="muted">No attributes</div>`;
 
-      const todosText = (v.compliance_todos || []).map(x => `• ${x}`).join("\n");
-      const unctText = (v.uncertainty || []).map(x => `• ${x}`).join("\n");
+      const todosText = (v.compliance_todos || []).map(x => `- ${x}`).join("\n");
+      const unctText = (v.uncertainty || []).map(x => `- ${x}`).join("\n");
 
       return `
         <details open>
@@ -791,7 +1538,7 @@
 
       const listings = state.result?.listings || {};
       const v = listings[state.mode];
-      $("listingOut").innerHTML = state.result ? renderListingVariant(v) : `<div class="block">—</div>`;
+      $("listingOut").innerHTML = state.result ? renderListingVariant(v) : `<div class="block">-</div>`;
     }
 
     async function copyText(text) {
@@ -827,11 +1574,18 @@
       state.aborter = controller;
 
       try {
-        const res = await fetch("/api/generate", {
+        const fetchOptions = {
           method: "POST",
           body: fd,
           signal: controller.signal
-        });
+        };
+
+        // Add auth header if logged in
+        if (auth.token) {
+          fetchOptions.headers = { "Authorization": `Bearer ${auth.token}` };
+        }
+
+        const res = await fetch("/api/generate", fetchOptions);
 
         const text = await res.text();
         let data = null;
@@ -844,7 +1598,7 @@
 
         state.result = data;
         renderOutputs();
-        showToast("Done");
+        showToast("Done" + (auth.isLoggedIn() ? " (saved to history)" : ""));
       } catch (e) {
         if (e?.name === "AbortError") {
           showToast("Canceled");
@@ -868,10 +1622,18 @@
       showToast("Cleared");
     }
 
-    function init() {
-      setMode(routeToMode(location.pathname));
+    // --- Initialization ---
+    async function init() {
+      // Try to fetch user if token exists
+      if (auth.token) {
+        await auth.fetchMe();
+      }
 
-      document.querySelectorAll(".tab").forEach(a => {
+      // Initial render
+      renderPage();
+
+      // Navigation listeners
+      document.querySelectorAll("#marketplaceTabs .tab").forEach(a => {
         a.addEventListener("click", (ev) => {
           ev.preventDefault();
           const mode = a.dataset.mode;
@@ -880,10 +1642,49 @@
         });
       });
 
-      window.addEventListener("popstate", () => {
-        setMode(routeToMode(location.pathname));
+      // Auth page links
+      document.querySelectorAll(".auth-card a, #loginLink").forEach(a => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          navigateTo(a.getAttribute("href"));
+        });
       });
 
+      window.addEventListener("popstate", () => {
+        renderPage();
+      });
+
+      // Auth forms
+      $("loginForm").addEventListener("submit", handleLogin);
+      $("registerForm").addEventListener("submit", handleRegister);
+      $("btnLogout").addEventListener("click", () => auth.logout());
+
+      // Click on username to go to history
+      $("userEmail").addEventListener("click", () => navigateTo("/dashboard"));
+
+      // Dashboard
+      $("btnNewGeneration").addEventListener("click", () => navigateTo("/olx"));
+      $("btnPrevPage").addEventListener("click", () => {
+        if (state.historyPage > 1) {
+          state.historyPage--;
+          loadHistory();
+        }
+      });
+      $("btnNextPage").addEventListener("click", () => {
+        const totalPages = Math.ceil(state.historyTotal / state.historyLimit);
+        if (state.historyPage < totalPages) {
+          state.historyPage++;
+          loadHistory();
+        }
+      });
+
+      // Modal
+      $("modalClose").addEventListener("click", closeHistoryModal);
+      $("historyModal").addEventListener("click", (e) => {
+        if (e.target === $("historyModal")) closeHistoryModal();
+      });
+
+      // Generator
       $("btnPick").addEventListener("click", () => {
         if (state.loading) return;
         $("fileInput").click();
