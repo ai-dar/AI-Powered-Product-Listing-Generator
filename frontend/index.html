@@ -1267,7 +1267,11 @@
         $("dashboardPage").classList.remove("hidden");
         loadHistory();
       } else {
-        // Generator page
+        // Generator page - requires authentication
+        if (!auth.isLoggedIn()) {
+          navigateTo("/login");
+          return;
+        }
         $("generatorPanel").classList.remove("hidden");
         $("marketplaceTabs").classList.remove("hidden");
         $("modeBadge").classList.remove("hidden");
